@@ -109,9 +109,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
 MAILERS = {'default': {'BACKEND': 'django.core.mail.backends.console.EmailBackend'}}
-
-SESSION_COOKIE_HTTPONLY = True
-SESSION_COOKIE_SAMESITE = 'None'
-SESSION_COOKIE_SECURE = not DEBUG
-SESSION_COOKIE_AGE = 60 * 60 * 2
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True

@@ -1,3 +1,10 @@
+<p>
+    <em>
+        Upute: u ovom dijelu stranice omogućen je napad SQL umetanjem tautologijom. Dok je aplikacija
+        u ranjivom stanju, pošiljanje uzorka <pre>' OR '1' = '1' --</pre> u polje za lozinku uvijek
+        će vas prijaviti kao korisnika peroperic, bez obzira što niste unijeli njegovu pravu lozinku.
+    </em>
+</p>
 {% if user %}
     <p>Pozdrav, {{ user.username }}!</p>
     <form method="post" action="{% url 'logout' %}">

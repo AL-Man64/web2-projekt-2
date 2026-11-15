@@ -1,3 +1,11 @@
+<p>
+    <em>
+        Upute: u ovom dijelu stranice omogućen je napad CSRF (cross site request forgery). U ranjivom
+        stanju je vanjskoj stranici (nekom napadaču) omogućeno da u vaše ime pošalje zahtjev na neku
+        od ranjivih putanja. Primjer napada je implementiran u običnom HTML-u i javascriptu u istom
+        repozitoriju kao ova aplikacija, pod putanjom <pre>attacker-site/index.html</pre>
+    </em>
+</p>
 <section>
     <form method="post" action="{% url 'bookmark_album' %}">
         {% if not vulnerable %}
