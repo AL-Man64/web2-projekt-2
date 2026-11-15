@@ -1,0 +1,20 @@
+{% extends "_base.html" %}
+{% block content %}
+    <h1>Album spremator</h1>
+    <section>
+        <h2>Ranjivost stranice</h2>
+        {% include "_partial/vulnerability.html" %}
+    </section>
+    <section>
+        <h2>Prijava (SQL Injection)</h2>
+        {% include "_partial/login_logout.html" %}
+    </section>
+    <section>
+        <h2>Spremljeni albumi (CSRF)</h2>
+        {% if user %}
+            {% include "_partial/albums.html" %}
+        {% else %}
+            <p>Morate biti prijavljeni da biste vidjeli spremljene albume, kao i demonstraciju CSRF napada</p>
+        {% endif %}
+    </section>
+{% endblock %}
